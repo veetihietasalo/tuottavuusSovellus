@@ -1,15 +1,18 @@
-# tuottavuusSovellus
-Lopputyön aiheena tuottavuuden parantamiseksi ja ajanseurannan helpottamiseksi kehitetty sovellus.
-# Ominaisuudet:
-- Tehtäväluettelo: Näytä kaikki tehtävät.
-- - Lisää tehtävä: Lisää uusia tehtäviä luetteloon.
-- - Muokkaa tehtävää: Muokkaa olemassa olevia tehtäviä, mukaan lukien niiden nimet, prioriteetit, määräajat ja kategoriat.
-- - Tehtäväkategoriat: Järjestä tehtävät eri kategorioihin.
-- - Tehtävämääräajat: Aseta ja näytä tehtävien määräajat.
-- - Kalenterinäkymä: Näytä tehtävät kalenterissa.
-- - "Dashboard-näkymä": Näyttää myöhässä olevat tehtävät, tulevat tehtävät, kaikki tehtävät, kategorioittain tehtävät tms.
+# Productivity Application
 
-# Teknologiat, joita projektissa käytettiin:
+# The topic of the final project is an application developed to improve productivity and facilitate time tracking.
 
-- React-Native
-- Firebase realtime database
+## Features:
+
+        Task List: Display all tasks.
+        Add Task: Add new tasks to the list.
+        Edit Task: Edit existing tasks, including their names, priorities, deadlines, and categories.
+        Task Categories: Organize tasks into different categories.
+        Task Deadlines: Set and display task deadlines.
+        Calendar View: Show tasks in a calendar.
+        Dashboard View: Displays overdue tasks, upcoming tasks, all tasks, tasks by category, etc.
+
+## Technologies used in the project:
+
+    React Native
+    Firebase Realtime Database
