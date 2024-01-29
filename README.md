@@ -1,6 +1,6 @@
 # Productivity Application
 
-# The topic of the final project is an application developed to improve productivity and facilitate time tracking.
+## The topic of the final project is an application developed to improve productivity and facilitate time tracking.
 
 ## Features:
 
