@@ -1,6 +1,6 @@
 import { getDatabase, ref, set, push, remove, onValue } from 'firebase/database';
 
-export const addTask = (tasks, setTasks) => {
+export const addTask = (tasks) => {
     const db = getDatabase();
     const newTask = {
         name: `Tehtävä ${tasks.length + 1}`,

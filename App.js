@@ -21,7 +21,8 @@ const App = () => {
     return (
         
         <View style={ styles.container }> 
-            <Button title="Add Task" onPress={addTask} />    
+            {/* onPress passes the press event, so hand addTask the task list explicitly */}
+            <Button title="Add Task" onPress={() => addTask(tasks)} />
             {<AppNavigator/>}
         </View>
         
