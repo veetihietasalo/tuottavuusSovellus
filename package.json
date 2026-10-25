@@ -6,27 +6,29 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:web": "expo export --platform web --output-dir dist && node scripts/web-relative-paths.js dist",
+    "deploy:web": "npm run build:web && sh scripts/deploy-web.sh"
   },
   "dependencies": {
-    "@mui/material": "^5.14.18",
+    "@expo/metro-runtime": "~2.2.16",
     "@react-native-community/datetimepicker": "7.2.0",
     "@react-native-picker/picker": "^2.5.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
-    "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
-    "@react-navigation/native-stack": "^6.9.17",
     "@rneui/base": "^4.0.0-rc.7",
-    "@rneui/themed": "^4.0.0-rc.8",
     "expo": "~49.0.15",
+    "expo-asset": "~8.10.1",
     "expo-status-bar": "~1.6.0",
     "firebase": "^10.6.0",
-    "mui": "^0.0.1",
+    "moment": "^2.31.0",
     "react": "18.2.0",
+    "react-dom": "^18.2.0",
     "react-native": "0.72.6",
     "react-native-calendars": "^1.1302.0",
     "react-native-safe-area-context": "^4.7.4",
-    "react-native-screens": "^3.27.0"
+    "react-native-screens": "^3.27.0",
+    "react-native-web": "^0.19.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
