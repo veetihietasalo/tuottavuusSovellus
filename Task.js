@@ -24,13 +24,19 @@ const Task = ({ task, setEditingStates, editingStates }) => {
         }));
     };
 
+    // An emptied number field parses to NaN, and Firebase set() throws on NaN, so keep the old value.
+    const toInt = (text, fallback) => {
+        const value = parseInt(text, 10);
+        return Number.isNaN(value) ? fallback : value;
+    };
+
     const handleSave = () => {
         const updatedTask = {
             name: editedName,
-            priority: parseInt(editedPriority, 10),
+            priority: toInt(editedPriority, task.priority),
             deadline: editedDeadline.toISOString(),
             category: selectedCategory,
-            timeUsed: parseInt(timeUsed, 10),
+            timeUsed: toInt(timeUsed, task.timeUsed),
         };
         editTask(task.id, updatedTask);
         setEditingStates(prevStates => ({
