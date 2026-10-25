@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Platform, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from './DeadlinePicker';
 import { Button } from '@rneui/base';
 import { addTask, editTask, deleteTask } from './firebaseTasks';
 

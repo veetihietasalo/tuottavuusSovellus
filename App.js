@@ -1,3 +1,4 @@
+import './webAssetPaths';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { initializeApp } from 'firebase/app';
