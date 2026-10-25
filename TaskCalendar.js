@@ -8,9 +8,7 @@ const TaskCalendar = () => {
     const [tasks, setTasks] = useState([]);
     const [selectedDayTasks, setSelectedDayTasks] = useState([]);
 
-    useEffect(() => {
-        fetchTasks(setTasks); // Fetch tasks from firebase
-    }, []);
+    useEffect(() => fetchTasks(setTasks), []); // Fetch tasks from firebase, unsubscribe on unmount
 
     // Date formatting using moment
     const formatDate = (dateString) => {

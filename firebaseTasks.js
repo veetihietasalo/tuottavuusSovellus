@@ -33,7 +33,8 @@ export const fetchTasks = (setTasks) => {
     const db = getDatabase();
     const tasksRef = ref(db, '/tasks');
 
-    onValue(tasksRef, (snapshot) => {
+    // Returns the unsubscribe function, so callers can return it from useEffect.
+    return onValue(tasksRef, (snapshot) => {
         const data = snapshot.val();
         const loadedTasks = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
         setTasks(loadedTasks);

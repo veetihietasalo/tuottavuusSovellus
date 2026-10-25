@@ -7,9 +7,7 @@ const TaskList = () => {
     const [tasks, setTasks] = useState([]);
     const [editingStates, setEditingStates] = useState({});
 
-    useEffect(() => {
-        fetchTasks(setTasks);
-    }, []);
+    useEffect(() => fetchTasks(setTasks), []);
 
     if (!tasks.length) {
         return <Text>No tasks available</Text>;

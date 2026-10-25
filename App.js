@@ -14,9 +14,7 @@ const App = () => {
     
     const [tasks, setTasks] = useState([]);
 
-    useEffect(() => {
-        fetchTasks(setTasks);
-    }, []);    
+    useEffect(() => fetchTasks(setTasks), []);    
 
     return (
         

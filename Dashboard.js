@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         const db = getDatabase();
         const tasksRef = ref(db, '/tasks');
-        onValue(tasksRef, (snapshot) => {
+        return onValue(tasksRef, (snapshot) => {
             const data = snapshot.val();
             const loadedTasks = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
             setTasks(loadedTasks);
