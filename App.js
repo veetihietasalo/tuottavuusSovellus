@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { Button } from '@rneui/base';
 import AppNavigator from './AppNavigator';
-import firebaseConfig from './firebaseConfig';
+import firebaseConfig, { demoMode } from './firebaseConfig';
 import { addTask, fetchTasks } from './firebaseTasks';
 
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+// In demo mode firebaseTasks.js uses the local list and Firebase is never started.
+if (!demoMode) {
+    const app = initializeApp(firebaseConfig);
+    getDatabase(app);
+}
 
 const App = () => {
     
@@ -19,6 +22,7 @@ const App = () => {
     return (
         
         <View style={ styles.container }> 
+            {demoMode && <Text style={styles.demo}>Demo mode: data stays on this device.</Text>}
             {/* onPress passes the press event, so hand addTask the task list explicitly */}
             <Button title="Add Task" onPress={() => addTask(tasks)} />
             {<AppNavigator/>}
@@ -33,6 +37,12 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         paddingHorizontal: 10,
         backgroundColor: '#eee',
+    },
+    demo: {
+        textAlign: 'center',
+        color: '#b00020',
+        fontWeight: 'bold',
+        marginBottom: 6,
     },
     input: {
         borderWidth: 1,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { fetchTasks } from './firebaseTasks';
 
 const Dashboard = () => {
     const [tasks, setTasks] = useState([]);
@@ -9,15 +9,8 @@ const Dashboard = () => {
         lateTasks: false,
         totalTasks: false,
     });
-    useEffect(() => {
-        const db = getDatabase();
-        const tasksRef = ref(db, '/tasks');
-        return onValue(tasksRef, (snapshot) => {
-            const data = snapshot.val();
-            const loadedTasks = data ? Object.keys(data).map(key => ({ id: key, ...data[key] })) : [];
-            setTasks(loadedTasks);
-        });
-    }, []);
+    // Same listener as the other screens, so demo mode works here too.
+    useEffect(() => fetchTasks(setTasks), []);
 
     // 1. Total tasks
     const totalTasks = tasks.length;

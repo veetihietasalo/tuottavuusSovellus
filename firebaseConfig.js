@@ -1,4 +1,4 @@
-// Set in .env (see .env.example). Expo inlines EXPO_PUBLIC_ values into the JS bundle at build time,
+// Optional. Set in .env (see .env.example). Expo inlines EXPO_PUBLIC_ values into the JS bundle at build time,
 // so each one has to be read as process.env.EXPO_PUBLIC_..., not through a variable name.
 const env = {
   EXPO_PUBLIC_FIREBASE_API_KEY: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
@@ -10,9 +10,11 @@ const env = {
   EXPO_PUBLIC_FIREBASE_APP_ID: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
 };
 
+// Without a full config (the course project is gone) the app runs in demo mode on a local list.
 const missing = Object.keys(env).filter((name) => !env[name]);
-if (missing.length) {
-  throw new Error(`Firebase config missing: ${missing.join(', ')}. Copy .env.example to .env, fill in the web app config from the Firebase console and restart Expo with \`npx expo start --clear\`.`);
+export const demoMode = missing.length > 0;
+if (demoMode && missing.length < Object.keys(env).length) {
+  console.warn(`Firebase config incomplete, missing ${missing.join(', ')}. Running in demo mode.`);
 }
 
 const firebaseConfig = {
