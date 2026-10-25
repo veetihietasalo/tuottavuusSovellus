@@ -19,15 +19,6 @@ const Dashboard = () => {
         });
     }, []);
 
-    useEffect(() => {
-        // Initialize the dropdown state for each category
-        const dropdownStates = categoryTotals.reduce((acc, catTotal) => {
-            acc[catTotal.category] = false;
-            return acc;
-        }, {});
-        setDropdownsOpen(dropdownStates);
-    }, [categoryTotals]); // Rerun this effect when categoryTotals change
-
     // 1. Total tasks
     const totalTasks = tasks.length;
 
